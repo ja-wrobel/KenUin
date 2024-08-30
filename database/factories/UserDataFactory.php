@@ -18,7 +18,7 @@ class UserDataFactory extends Factory
     {
         return [
             'total_score' => fake()->randomFloat(2, 0, 1000000),
-            'nuins_currency' => fake()->randomNumber(15),
+            'nuins_currency' => fake()->randomNumber(9),
             'subscription' => fake()->numberBetween(0, 1),
             'subscription_until' => fake()->creditCardExpirationDate()
         ];
