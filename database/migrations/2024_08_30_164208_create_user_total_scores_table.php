@@ -11,8 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('update_time_of_top_scores', function (Blueprint $table){
-            $table->id();
+        Schema::create('user_total_scores', function (Blueprint $table) {
+            $table->foreignId('user_id')->constrained();
+            $table->decimal('total_score', 18, 2);
             $table->timestamps();
         });
     }
@@ -22,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('update_time_of_top_scores');
+        Schema::dropIfExists('user_total_scores');
     }
 };

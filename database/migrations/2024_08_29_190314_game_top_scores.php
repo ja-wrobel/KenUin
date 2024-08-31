@@ -18,7 +18,7 @@ return new class extends Migration
             $table->decimal('score', 50, 2);
             $table->integer('time')->comment('In ms');
             $table->integer('tries');
-            $table->date('score_date');
+            $table->dateTime('score_date');
             $table->timestamps();
         });
     }

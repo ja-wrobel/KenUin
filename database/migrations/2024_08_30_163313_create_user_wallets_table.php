@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users_data', function (Blueprint $table){
-            $table->foreignId('user_id')->constrained('users', 'id')->onDelete('cascade');
-            $table->decimal('total_score', 50, 2);
+        Schema::create('user_wallets', function (Blueprint $table) {
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->integer('nuins_currency');
-            $table->integer('subscription')->comment('0 or 1 as Yes or No');
-            $table->date('subscription_until');
             $table->timestamps();
         });
     }
@@ -26,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users_data');
+        Schema::dropIfExists('user_wallets');
     }
 };

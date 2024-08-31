@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('top_total_scores', function (Blueprint $table){
-            $table->id();
-            $table->foreignId('user_id')->constrained();
-            $table->decimal('total_score', 18, 2);
+        Schema::create('user_subscriptions', function (Blueprint $table) {
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->boolean('subscription');
+            $table->dateTime('subscription_until');
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('top_total_scores');
+        Schema::dropIfExists('user_subscriptions');
     }
 };
