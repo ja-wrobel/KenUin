@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('games', function (Blueprint $table) {
             $table->id();
             $table->string('name', 30)->unique();
-            $table->string('type', 30);
+            $table->enum('type', ['arcade', 'quiz', 'shooter', 'strategy', 'racing', 'pvp', 'fighting', 'casual']);
             $table->text('description');
-            $table->string('difficulty', 30);
-            $table->string('DIR_PATH', 100)->unique();
+            $table->enum('difficulty', ['easy', 'medium_easy', 'medium', 'medium_hard', 'hard']);
+            $table->string('dir_path', 100)->unique();
             $table->timestamps();
         });
     }

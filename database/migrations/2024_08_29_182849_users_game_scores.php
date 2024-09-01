@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('users_game_scores', function (Blueprint $table){
             $table->foreignId('user_id')->constrained('users', 'id')->onDelete('cascade');
             $table->foreignId('game_id')->constrained('games', 'id')->onDelete('cascade');
-            $table->decimal('score', 50, 2);
+            $table->decimal('score', 12, 2);
             $table->integer('score_time')->comment('In ms');
             $table->integer('score_tries');
-            $table->date('score_date');
+            $table->dateTime('score_date');
             $table->timestamps();
         });
     }

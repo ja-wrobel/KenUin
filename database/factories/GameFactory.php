@@ -17,11 +17,11 @@ class GameFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
-            'type' => 'arcade',
-            'description' => fake()->realText(),
-            'difficultity' => 'easy',
-            'DIR_PATH' => fake()->filePath()
+            'name' => $this->faker->name(),
+            'type' => $this->faker->randomElement(['arcade', 'quiz', 'shooter', 'strategy', 'racing', 'pvp', 'fighting', 'casual']),
+            'description' => $this->faker->realText(),
+            'difficultity' => $this->faker->randomElement(['easy', 'medium_easy', 'medium', 'medium_hard', 'hard']),
+            'dir_path' => $this->faker->filePath()
         ];
     }
 }
