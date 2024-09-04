@@ -1,0 +1,10 @@
+{
+    "preset": "psr12",
+    "rules": {
+        "new_with_parentheses": {
+            "anonymous_class": false,
+            "named_class": false
+        },
+        "trailing_comma_in_multiline": true
+    }
+}
