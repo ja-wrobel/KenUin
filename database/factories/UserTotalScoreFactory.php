@@ -17,7 +17,7 @@ class UserTotalScoreFactory extends Factory
     public function definition(): array
     {
         return [
-            'total_score' => $this->faker->randomFloat(2, 0, 10000000)
+            'total_score' => $this->faker->randomFloat(2, 0, 10000000),
         ];
     }
 }

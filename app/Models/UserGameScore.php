@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -13,6 +15,6 @@ class UserGameScore extends Model
         'score',
         'score_time',
         'score_tries',
-        'score_date'
+        'score_date',
     ];
 }

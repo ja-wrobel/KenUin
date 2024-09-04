@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Models;
@@ -14,6 +15,6 @@ class GameTopScore extends Model
         'score',
         'time',
         'tries',
-        'score_date'
+        'score_date',
     ];
 }

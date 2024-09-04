@@ -18,7 +18,7 @@ class UserGameRunFactory extends Factory
     {
         return [
             'official_runs' => $this->faker->randomNumber(1),
-            'test_runs' => $this->faker->randomNumber(2)
+            'test_runs' => $this->faker->randomNumber(2),
         ];
     }
 }

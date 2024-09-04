@@ -18,7 +18,7 @@ class UserSubscriptionFactory extends Factory
     {
         return [
             'subscription' => $this->faker->boolean(),
-            'subscription_until' => $this->faker->dateTime()
+            'subscription_until' => $this->faker->dateTime(),
         ];
     }
 }

@@ -1,12 +1,14 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
-use App\UserData;
-use App\UserGame;
+use App\Models\RelationshipTraits\HasUserData;
+use App\Models\RelationshipTraits\HasUserGameRuns;
+use App\Models\RelationshipTraits\HasUserGameScores;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -15,7 +17,11 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable, UserData, UserGame;
+    use HasFactory;
+    use HasUserData;
+    use HasUserGameRuns;
+    use HasUserGameScores;
+    use Notifiable;
 
     protected $fillable = [
         'nickname',
@@ -32,7 +38,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(GameTopScore::class);
     }
-    public function topTotalScores(): HasOne {
+
+    public function topTotalScores(): HasOne
+    {
         return $this->hasOne(TopTotalScore::class);
     }
 
