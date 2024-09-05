@@ -9,19 +9,24 @@ use App\Models\UserTotalScore;
 use App\Models\UserWallet;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
+/**
+ * @property-read UserSubscription|null $subscription
+ * @property-read UserTotalScore|null $score
+ * @property-read UserWallet|null $wallet
+ */
 trait HasUserData
 {
-    public function subscriptions(): HasOne
+    public function subscription(): HasOne
     {
         return $this->hasOne(UserSubscription::class);
     }
 
-    public function scores(): HasOne
+    public function score(): HasOne
     {
         return $this->hasOne(UserTotalScore::class);
     }
 
-    public function wallets(): HasOne
+    public function wallet(): HasOne
     {
         return $this->hasOne(UserWallet::class);
     }

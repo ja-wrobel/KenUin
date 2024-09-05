@@ -9,6 +9,7 @@ namespace App\Models;
 use App\Models\RelationshipTraits\HasUserData;
 use App\Models\RelationshipTraits\HasUserGameRuns;
 use App\Models\RelationshipTraits\HasUserGameScores;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -20,11 +21,14 @@ use Illuminate\Support\Carbon;
  * @property-read int $id
  * @property string $nickname
  * @property string $email
- * @property Carbon|null $email_verified_at
+ * @property-read Carbon|null $email_verified_at
  * @property string $password
- * @property string|null $remember_token
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
+ * @property-read string|null $remember_token
+ * @property-read Carbon|null $created_at
+ * @property-read Carbon|null $updated_at
+ *
+ * @property-read Collection<GameTopScore> $gameTopScores
+ * @property-read null|TopTotalScore $topTotalScore
  */
 class User extends Authenticatable
 {
@@ -50,7 +54,7 @@ class User extends Authenticatable
         return $this->hasMany(GameTopScore::class);
     }
 
-    public function topTotalScores(): HasOne
+    public function topTotalScore(): HasOne
     {
         return $this->hasOne(TopTotalScore::class);
     }
