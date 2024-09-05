@@ -31,7 +31,8 @@ class UserFactoryTest extends TestCase
         $now = now();
         Carbon::setTestNow(testNow: $now);
 
-        $model = $this->factory->create();
+        /** @var User $model */
+        $model = $this->factory->createOne();
         $this->assertInstanceOf(expected: User::class, actual: $model);
         $this->assertIsString(actual: $model->nickname);
         $this->assertIsString(actual: $model->email);
