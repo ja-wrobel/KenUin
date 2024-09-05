@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('game_id')->constrained()->onDelete('cascade');
-            $table->decimal('score', 50, 2);
+            $table->decimal('score', 12, 2);
             $table->integer('time')->comment('In ms');
             $table->integer('tries');
             $table->dateTime('score_date');
