@@ -20,7 +20,7 @@ class GameFactory extends Factory
             'name' => $this->faker->name(),
             'type' => $this->faker->randomElement(['arcade', 'quiz', 'shooter', 'strategy', 'racing', 'pvp', 'fighting', 'casual']),
             'description' => $this->faker->realText(),
-            'difficultity' => $this->faker->randomElement(['easy', 'medium_easy', 'medium', 'medium_hard', 'hard']),
+            'difficulty' => $this->faker->randomElement(['easy', 'medium_easy', 'medium', 'medium_hard', 'hard']),
             'dir_path' => $this->faker->filePath(),
         ];
     }
