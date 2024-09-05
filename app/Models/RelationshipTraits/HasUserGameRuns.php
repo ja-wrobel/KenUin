@@ -1,21 +1,16 @@
 <?php
+
 declare(strict_types=1);
 
-namespace App;
+namespace App\Models\RelationshipTraits;
 
 use App\Models\UserGameRun;
-use App\Models\UserGameScore;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-trait UserGame
+trait HasUserGameRuns
 {
     public function runs(): HasMany
     {
         return $this->hasMany(UserGameRun::class);
-    }
-    
-    public function scores(): HasMany
-    {
-        return $this->hasMany(UserGameScore::class);
     }
 }

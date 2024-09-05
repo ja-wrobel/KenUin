@@ -17,7 +17,7 @@ class UserWalletFactory extends Factory
     public function definition(): array
     {
         return [
-            'nuins_currency' => $this->faker->randomNumber(9)
+            'nuins_currency' => $this->faker->randomNumber(9),
         ];
     }
 }

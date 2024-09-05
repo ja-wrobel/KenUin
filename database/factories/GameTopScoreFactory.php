@@ -20,7 +20,7 @@ class GameTopScoreFactory extends Factory
             'score' => $this->faker->randomFloat(2, 1000, 100000),
             'time' => $this->faker->randomNumber(6),
             'tries' => $this->faker->randomNumber(1),
-            'score_date' => $this->faker->dateTime()
+            'score_date' => $this->faker->dateTime(),
         ];
     }
 }
