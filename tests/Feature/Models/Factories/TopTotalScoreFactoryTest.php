@@ -32,7 +32,7 @@ class TopTotalScoreFactoryTest extends TestCase
 
         /** @var TopTotalScore $model */
         $model = $this->factory->createOne([
-            'user_id' => $user->id
+            'user_id' => $user->id,
         ]);
         $this->assertInstanceOf(TopTotalScore::class, $model);
         $this->assertIsFloat($model->total_score);

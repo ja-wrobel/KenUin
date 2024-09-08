@@ -32,7 +32,7 @@ class UserWalletFactoryTest extends TestCase
 
         /** @var UserWallet $model */
         $model = $this->factory->createOne([
-            'user_id' => $user->id
+            'user_id' => $user->id,
         ]);
         $this->assertInstanceOf(UserWallet::class, $model);
         $this->assertIsInt($model->nuins_currency);

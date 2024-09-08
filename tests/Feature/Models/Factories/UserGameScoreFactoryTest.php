@@ -36,7 +36,7 @@ class UserGameScoreFactoryTest extends TestCase
         /** @var UserGameScore $model */
         $model = $this->factory->createOne([
             'user_id' => $user->id,
-            'game_id' => $game->id
+            'game_id' => $game->id,
         ]);
         $this->assertInstanceOf(UserGameScore::class, $model);
         $this->assertIsFloat($model->score);

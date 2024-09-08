@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Tests\Feature\Models\Factories;
 
 use App\Models\Game;
-use Carbon\Carbon;
 use Database\Factories\GameFactory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use PHPUnit\Framework\Attributes\CoversClass;

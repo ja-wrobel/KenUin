@@ -35,7 +35,7 @@ class UserGameRunFactoryTest extends TestCase
         /** @var UserGameRun $model */
         $model = $this->factory->createOne([
             'user_id' => $user->id,
-            'game_id' => $game->id
+            'game_id' => $game->id,
         ]);
         $this->assertInstanceOf(UserGameRun::class, $model);
         $this->assertIsInt($model->official_runs);

@@ -33,7 +33,7 @@ class UserSubscriptionFactoryTest extends TestCase
 
         /** @var UserSubscription $model */
         $model = $this->factory->createOne([
-            'user_id' => $user->id
+            'user_id' => $user->id,
         ]);
         $this->assertInstanceOf(UserSubscription::class, $model);
         $this->assertIsBool($model->subscription);
