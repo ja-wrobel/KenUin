@@ -140,7 +140,7 @@ class UserRelationshipsTest extends TestCase
     }
 
     #[Test]
-    public function gameScores(): void
+    public function userGameScores(): void
     {
         /** @var UserGameScore $gameScore */
         $gameScore = UserGameScore::factory()
@@ -150,7 +150,7 @@ class UserRelationshipsTest extends TestCase
 
         $this->assertInstanceOf(
             expected: UserGameScore::class,
-            actual: $this->model->gameScores->first()
+            actual: $this->model->userGameScores->first()
         );
         $this->assertEquals(
             expected: $this->model->id,
