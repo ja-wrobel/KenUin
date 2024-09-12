@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- * @property-read Collection<UserGameRun> $runs
+ * @property-read Collection<UserGameRun> $userGameRuns
  */
 trait HasUserGameRuns
 {
