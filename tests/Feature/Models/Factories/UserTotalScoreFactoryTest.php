@@ -28,12 +28,11 @@ class UserTotalScoreFactoryTest extends TestCase
     #[Test]
     public function create_model(): void
     {
-        $user = User::factory()->createOne();
-
         /** @var UserTotalScore $model */
-        $model = $this->factory->createOne([
-            'user_id' => $user->id,
-        ]);
+        $model = $this->factory
+            ->for(User::factory())
+            ->createOne();
+
         $this->assertInstanceOf(UserTotalScore::class, $model);
         $this->assertIsFloat($model->total_score);
     }

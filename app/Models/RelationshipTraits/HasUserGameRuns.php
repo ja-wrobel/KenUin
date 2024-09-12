@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  */
 trait HasUserGameRuns
 {
-    public function runs(): HasMany
+    public function userGameRuns(): HasMany
     {
         return $this->hasMany(UserGameRun::class);
     }

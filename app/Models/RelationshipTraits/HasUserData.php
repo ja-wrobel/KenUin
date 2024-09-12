@@ -16,17 +16,17 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  */
 trait HasUserData
 {
-    public function subscription(): HasOne
+    public function userSubscription(): HasOne
     {
         return $this->hasOne(UserSubscription::class);
     }
 
-    public function score(): HasOne
+    public function userTotalScore(): HasOne
     {
         return $this->hasOne(UserTotalScore::class);
     }
 
-    public function wallet(): HasOne
+    public function userWallet(): HasOne
     {
         return $this->hasOne(UserWallet::class);
     }

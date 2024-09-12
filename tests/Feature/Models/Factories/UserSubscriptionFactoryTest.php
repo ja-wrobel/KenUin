@@ -29,12 +29,11 @@ class UserSubscriptionFactoryTest extends TestCase
     #[Test]
     public function create_model(): void
     {
-        $user = User::factory()->createOne();
-
         /** @var UserSubscription $model */
-        $model = $this->factory->createOne([
-            'user_id' => $user->id,
-        ]);
+        $model = $this->factory
+            ->for(User::factory())
+            ->createOne();
+
         $this->assertInstanceOf(UserSubscription::class, $model);
         $this->assertIsBool($model->subscription);
         $this->assertInstanceOf(DateTime::class, $model->subscription_until);

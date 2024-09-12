@@ -67,7 +67,7 @@ class UserRelationshipsTest extends TestCase
     }
 
     #[Test]
-    public function subscription(): void
+    public function user_subscription(): void
     {
         /** @var UserSubscription $subscription */
         $subscription = UserSubscription::factory()
@@ -76,7 +76,7 @@ class UserRelationshipsTest extends TestCase
 
         $this->assertInstanceOf(
             expected: UserSubscription::class,
-            actual: $this->model->subscription
+            actual: $this->model->userSubscription
         );
         $this->assertEquals(
             expected: $this->model->id,
@@ -85,7 +85,7 @@ class UserRelationshipsTest extends TestCase
     }
 
     #[Test]
-    public function score(): void
+    public function user_total_score(): void
     {
         /** @var UserTotalScore $score */
         $score = UserTotalScore::factory()
@@ -94,7 +94,7 @@ class UserRelationshipsTest extends TestCase
 
         $this->assertInstanceOf(
             expected: UserTotalScore::class,
-            actual: $this->model->score
+            actual: $this->model->userTotalScore
         );
         $this->assertEquals(
             expected: $this->model->id,
@@ -103,7 +103,7 @@ class UserRelationshipsTest extends TestCase
     }
 
     #[Test]
-    public function wallet(): void
+    public function user_wallet(): void
     {
         /** @var UserWallet $wallet */
         $wallet = UserWallet::factory()
@@ -112,7 +112,7 @@ class UserRelationshipsTest extends TestCase
 
         $this->assertInstanceOf(
             expected: UserWallet::class,
-            actual: $this->model->wallet
+            actual: $this->model->userWallet
         );
         $this->assertEquals(
             expected: $this->model->id,
@@ -121,7 +121,7 @@ class UserRelationshipsTest extends TestCase
     }
 
     #[Test]
-    public function runs(): void
+    public function user_game_runs(): void
     {
         /** @var UserGameRun $run */
         $run = UserGameRun::factory()
@@ -131,7 +131,7 @@ class UserRelationshipsTest extends TestCase
 
         $this->assertInstanceOf(
             expected: UserGameRun::class,
-            actual: $this->model->runs->first()
+            actual: $this->model->userGameRuns->first()
         );
         $this->assertEquals(
             expected: $this->model->id,
@@ -140,7 +140,7 @@ class UserRelationshipsTest extends TestCase
     }
 
     #[Test]
-    public function userGameScores(): void
+    public function user_game_scores(): void
     {
         /** @var UserGameScore $gameScore */
         $gameScore = UserGameScore::factory()

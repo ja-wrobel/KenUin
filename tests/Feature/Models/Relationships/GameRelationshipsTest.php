@@ -55,7 +55,7 @@ class GameRelationshipsTest extends TestCase
 
         $this->assertInstanceOf(
             UserGameRun::class,
-            $this->model->runs->first()
+            $this->model->userGameRuns->first()
         );
         $this->assertEquals(
             $this->model->id,

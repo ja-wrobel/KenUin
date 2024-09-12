@@ -28,12 +28,11 @@ class UserWalletFactoryTest extends TestCase
     #[Test]
     public function create_model(): void
     {
-        $user = User::factory()->createOne();
-
         /** @var UserWallet $model */
-        $model = $this->factory->createOne([
-            'user_id' => $user->id,
-        ]);
+        $model = $this->factory
+            ->for(User::factory())
+            ->createOne();
+
         $this->assertInstanceOf(UserWallet::class, $model);
         $this->assertIsInt($model->nuins_currency);
     }

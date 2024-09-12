@@ -31,16 +31,12 @@ class GameTopScoreFactoryTest extends TestCase
     #[Test]
     public function create_model(): void
     {
-        $now = now();
-        Carbon::setTestNow(testNow: $now);
-        $user = User::factory()->createOne();
-        $game = Game::factory()->createOne();
-
         /** @var GameTopScore $model */
-        $model = $this->factory->createOne([
-            'user_id' => $user->id,
-            'game_id' => $game->id,
-        ]);
+        $model = $this->factory
+            ->for(User::factory())
+            ->for(Game::factory())
+            ->createOne();
+
         $this->assertInstanceOf(GameTopScore::class, $model);
         $this->assertIsFloat($model->score);
         $this->assertIsInt($model->time);

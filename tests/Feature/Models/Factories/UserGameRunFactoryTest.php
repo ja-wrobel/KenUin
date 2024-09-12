@@ -29,14 +29,12 @@ class UserGameRunFactoryTest extends TestCase
     #[Test]
     public function create_model(): void
     {
-        $user = User::factory()->createOne();
-        $game = Game::factory()->createOne();
-
         /** @var UserGameRun $model */
-        $model = $this->factory->createOne([
-            'user_id' => $user->id,
-            'game_id' => $game->id,
-        ]);
+        $model = $this->factory
+            ->for(User::factory())
+            ->for(Game::factory())
+            ->createOne();
+
         $this->assertInstanceOf(UserGameRun::class, $model);
         $this->assertIsInt($model->official_runs);
         $this->assertIsInt($model->test_runs);
