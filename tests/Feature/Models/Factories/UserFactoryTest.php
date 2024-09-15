@@ -26,7 +26,7 @@ class UserFactoryTest extends TestCase
     }
 
     #[Test]
-    public function creates_model(): void
+    public function create_model(): void
     {
         $now = now();
         Carbon::setTestNow(testNow: $now);

@@ -10,6 +10,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
+/**
+ * @property-read int $id
+ * @property string $name
+ * @property string $type
+ * @property string $description
+ * @property string $dir_path
+ * @property-read Carbon|null $created_at
+ * @property-read Carbon|null $updated_at
+ *
+ * @property-read null|GameTopScore $gameTopScore
+ */
 class Game extends Model
 {
     use HasFactory;
@@ -28,7 +39,7 @@ class Game extends Model
         'dir_path',
     ];
 
-    public function gameTopScores(): HasOne
+    public function gameTopScore(): HasOne
     {
         return $this->hasOne(GameTopScore::class);
     }

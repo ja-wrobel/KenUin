@@ -9,11 +9,11 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- * @property-read Collection<UserGameScore> $gameScores
+ * @property-read Collection<UserGameScore> $userGameScores
  */
 trait HasUserGameScores
 {
-    public function gameScores(): HasMany
+    public function userGameScores(): HasMany
     {
         return $this->hasMany(UserGameScore::class);
     }
