@@ -2,9 +2,11 @@ name: Laravel Test App
 
 on:
   push:
-    branches: main
+    branches:
+      - main
   pull_request:
-    branches-ignore: main
+    branches-ignore:
+      - main
 
 jobs:
   laravel-tests:
