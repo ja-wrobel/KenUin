@@ -37,7 +37,7 @@ class GameTopScoresController extends Controller
             'worst_score_time' => '2147483647',
             'worst_score_tries' => '9',
         ]);
-        if( $entries_count < 10 && $entries_count > 0 ){
+        if ($entries_count < 10 && $entries_count > 0) {
             $request['worst_score'] = $entries->min('score');
             $request['worst_score_time'] = $entries
                 ->where('score', '=', $request->get('worst_score'))
@@ -58,10 +58,9 @@ class GameTopScoresController extends Controller
 
         $validator = Validator::make($request->all(), $rules);
 
-        if($validator->fails()){
+        if ($validator->fails()) {
             return Redirect::back()->withErrors($validator)->withInput();
-        }
-        else{
+        } else {
             $user = User::find($request->get('user_id'));
             $game = Game::find($request->get('game_id'));
 
@@ -87,12 +86,12 @@ class GameTopScoresController extends Controller
     {
         $game_scores = GameTopScore::where('game_id', $id)->get();
 
-        if($game_scores->count() <= 1){
-            foreach( $game_scores as $game_score ){
+        if ($game_scores->count() <= 1) {
+            foreach ($game_scores as $game_score) {
                 $first = $game_score;
             }
             return new GameTopScoreResource($first);
-        }else{
+        } else {
             return GameTopScoreResource::collection($game_scores);
         }
     }

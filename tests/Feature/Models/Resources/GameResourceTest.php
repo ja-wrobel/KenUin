@@ -24,17 +24,17 @@ class GameResourceTest extends TestCase
         parent::setUp();
         $this->model = Game::factory()->createOne();
     }
-/*
-    public function test_game_resource(): void
-    {
-        $game = Game::first();
-        $resource = new GameResource($game);
-        $request = Request::create('/api/games', 'GET');
+    /*
+        public function test_game_resource(): void
+        {
+            $game = Game::first();
+            $resource = new GameResource($game);
+            $request = Request::create('/api/games', 'GET');
 
-        $data = $this->getJson('/api/games');
-        dd($resource->response($request)->getData(true));
-        $data->assertExactJson([
-                $resource->response($request)->getData(true), // I don't understand why it doesn't return same as in dump&die
-            ]); // also when I make it work as Resource::collection, then it doesn't match because in $resource there is one more array
-    }*/
+            $data = $this->getJson('/api/games');
+            dd($resource->response($request)->getData(true));
+            $data->assertExactJson([
+                    $resource->response($request)->getData(true), // I don't understand why it doesn't return same as in dump&die
+                ]); // also when I make it work as Resource::collection, then it doesn't match because in $resource there is one more array
+        }*/
 }

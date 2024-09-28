@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\API\GamesController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\GameTopScoresController;
 use App\Http\Controllers\API\TopTotalScoresController;
