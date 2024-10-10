@@ -34,6 +34,12 @@ class GameTopScore extends Model
         'score_date',
     ];
 
+    protected $casts = [
+        'score_date' => 'datetime',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+    ];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

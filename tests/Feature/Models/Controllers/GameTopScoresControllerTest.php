@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tests\Feature\Models\Controllers;
 
 use App\Http\Controllers\API\GameTopScoresController;
+use App\Http\Resources\GameTopScoreResource;
 use App\Models\Game;
 use App\Models\GameTopScore;
 use App\Models\User;
@@ -19,29 +20,37 @@ class GameTopScoresControllerTest extends TestCase
 {
     use RefreshDatabase;
 
-    private Game $game_one_model;
-    private User $user_model;
+    private Game $game;
+    private User $user;
     private Collection $models;
 
 
     protected function setUp(): void
     {
         parent::setUp();
-        $this->game_one_model = Game::factory()->createOne();
-        $this->user_model = User::factory()->createOne();
-        GameTopScore::factory()
-            ->for($this->game_one_model)
-            ->for($this->user_model)
-            ->count(5)->create();
+        $this->game = Game::factory()->createOne();
+        $this->user = User::factory()->createOne();
+        $this->models = GameTopScore::factory()
+            ->for($this->game)
+            ->for($this->user)
+            ->count(10)->create();
     }
 
     #[Test]
     public function get_all_game_scores(): void
     {
         $response = $this->get('/api/game_scores');
+        $collection = GameTopScoreResource::collection($this->models);
+
+        $response_json = json_decode($response->getContent(), true);
+        $collection_json = json_decode($collection->toJson(), true);
 
         $response->assertStatus(200);
         $this->assertJson($response->getContent());
+        $this->assertEquals(
+            $collection_json,
+            $response_json['data'],
+        );
     }
 
     #[Test]
@@ -52,8 +61,8 @@ class GameTopScoresControllerTest extends TestCase
             'user_id' => '1',
             'game_id' => '1',
             'score' => '999999999999.99',
-            'time' => '1',
-            'tries' => '1',
+            'time' => '0',
+            'tries' => '0',
             'score_date' => '1985-08-12 19:37:56',
         ]);
 
@@ -64,15 +73,39 @@ class GameTopScoresControllerTest extends TestCase
             $before_post->getContent(),
             $after_post->getContent(),
         );
+
+        // test validation
+        $bad_request = $this->post('/api/game_scores', [
+            'user_id' => '1',
+            'game_id' => '1',
+            'score' => '1',
+            'time' => '100',
+            'tries' => '9',
+            'score_date' => '1985-08-12 19:37:56',
+        ]);
+        $bad_request->assertStatus(302);
+
+        $after_bad_post = $this->get('api/game_scores');
+        $this->assertEquals(
+            $after_post->getContent(),
+            $after_bad_post->getContent(),
+        );
     }
 
     #[Test]
-    public function get_game_scores(): void
+    public function get_game_score(): void
     {
-        $response_one = $this->get('/api/game_scores/1');
+        $response = $this->get('/api/game_scores/1');
+        $resource = GameTopScoreResource::make(GameTopScore::find(1));
 
-        $response_one->assertStatus(200);
-        $this->assertJson($response_one->getContent());
+        $resource_json = json_decode($resource->toJson(), true);
+        $response_json = json_decode($response->getContent(), true);
 
+        $response->assertStatus(200);
+        $this->assertJson($response->getContent());
+        $this->assertEquals(
+            $resource_json,
+            $response_json['data'],
+        );
     }
 }

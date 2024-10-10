@@ -39,6 +39,11 @@ class Game extends Model
         'dir_path',
     ];
 
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+    ];
+
     public function gameTopScore(): HasOne
     {
         return $this->hasOne(GameTopScore::class);

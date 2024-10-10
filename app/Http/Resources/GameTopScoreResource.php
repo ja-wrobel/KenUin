@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
@@ -16,12 +18,12 @@ class GameTopScoreResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'user_id' => $this->user_id,
-            'game_id' => $this->game_id,
+            'user_id' => UserResource::make($this->user),
+            'game_id' => GameResource::make($this->game),
             'score' => $this->score,
             'time' => $this->time,
             'tries' => $this->tries,
-            'score_date' => $this->score_date,
+            'score_date' => $this->score_date->toISOString(),
         ];
     }
 }

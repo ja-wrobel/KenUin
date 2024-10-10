@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace Tests\Feature\Models\Controllers;
 
 use App\Http\Controllers\API\GamesController;
+use App\Http\Resources\GameResource;
 use App\Models\Game;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
@@ -16,31 +18,45 @@ class GamesControllerTest extends TestCase
 {
     use RefreshDatabase;
 
-    private Game $model;
+    private Collection $models;
 
     protected function setUp(): void
     {
         parent::setUp();
-        $this->model = Game::factory()->createOne();
+        $this->models = Game::factory()->count(10)->create();
     }
 
     #[Test]
     public function get_all_games(): void
     {
         $response = $this->get('/api/games');
+        $collection = GameResource::collection($this->models);
+
+        $response_json = json_decode($response->getContent(), true);
+        $resource_json = json_decode($collection->toJson(), true);
 
         $response->assertStatus(200);
         $this->assertJson($response->getContent());
-        $response->assertDontSee('dir_path');
+        $this->assertEquals(
+            $resource_json,
+            $response_json['data'],
+        );
     }
 
     #[Test]
     public function get_game(): void
     {
         $response = $this->get('/api/games/1');
+        $resource = GameResource::make(Game::find(1));
+
+        $response_json = json_decode($response->getContent(), true);
+        $resource_json = json_decode($resource->toJson(), true);
 
         $response->assertStatus(200);
         $this->assertJson($response->getContent());
-        $response->assertDontSee('dir_path');
+        $this->assertEquals(
+            $resource_json,
+            $response_json['data'],
+        );
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
@@ -11,6 +13,6 @@ class UsersController extends Controller
     public function show(int $id)
     {
         $user = User::find($id);
-        return new UserResource($user);
+        return UserResource::make($user);
     }
 }
