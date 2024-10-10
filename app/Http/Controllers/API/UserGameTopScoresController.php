@@ -15,9 +15,9 @@ class UserGameTopScoresController extends Controller
     {
         $scores = GameTopScore::where('game_id', $id)->get();
 
-        if($scores->count() <= 1){
+        if ($scores->count() <= 1) {
             $first = null;
-            foreach($scores as $score){
+            foreach ($scores as $score) {
                 $first = $score;
             }
             return GameTopScoreResource::make($first);
@@ -30,9 +30,9 @@ class UserGameTopScoresController extends Controller
     {
         $scores = GameTopScore::where('user_id', $id)->get();
 
-        if($scores->count() <= 1){
+        if ($scores->count() <= 1) {
             $first = null;
-            foreach($scores as $score){
+            foreach ($scores as $score) {
                 $first = $score;
             }
             return GameTopScoreResource::make($first);

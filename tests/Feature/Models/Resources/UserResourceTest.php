@@ -29,7 +29,7 @@ class UserResourceTest extends TestCase
     public function user_resource(): void
     {
         $model_array = $this->model->toArray();
-        $resource_array = UserResource::make($this->model)->toArray(new Request());
+        $resource_array = UserResource::make($this->model)->toArray(new Request);
 
         $this->assertIsArray($resource_array);
         $this->assertArrayNotHasKey(

@@ -40,7 +40,7 @@ class GameTopScoreResourceTest extends TestCase
     public function game_top_score_resource(): void
     {
         $model_array = $this->model->toArray();
-        $resource_array = GameTopScoreResource::make($this->model)->toArray(new Request());
+        $resource_array = GameTopScoreResource::make($this->model)->toArray(new Request);
 
         $this->assertIsArray($resource_array);
         $this->assertInstanceOf(
@@ -54,15 +54,15 @@ class GameTopScoreResourceTest extends TestCase
         $this->assertIsString($resource_array['score_date']);
         $this->assertArrayNotHasKey(
             'password',
-            $resource_array['user_id']->toArray(new Request()),
+            $resource_array['user_id']->toArray(new Request),
         );
         $this->assertArrayNotHasKey(
             'remember_token',
-            $resource_array['user_id']->toArray(new Request()),
+            $resource_array['user_id']->toArray(new Request),
         );
         $this->assertArrayNotHasKey(
             'dir_path',
-            $resource_array['game_id']->toArray(new Request()),
+            $resource_array['game_id']->toArray(new Request),
         );
         $this->assertArrayIsEqualToArrayIgnoringListOfKeys(
             $model_array,

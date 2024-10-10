@@ -35,7 +35,7 @@ class TopTotalScoreResourceTest extends TestCase
     public function top_total_score_resource(): void
     {
         $model_array = $this->model->toArray();
-        $resource_array = TopTotalScoreResource::make($this->model)->toArray(new Request());
+        $resource_array = TopTotalScoreResource::make($this->model)->toArray(new Request);
 
         $this->assertIsArray($resource_array);
         $this->assertInstanceOf(
@@ -44,7 +44,7 @@ class TopTotalScoreResourceTest extends TestCase
         );
         $this->assertArrayNotHasKey(
             'password',
-            $resource_array['user_id']->toArray(new Request()),
+            $resource_array['user_id']->toArray(new Request),
         );
         $this->assertArrayIsEqualToArrayIgnoringListOfKeys(
             $model_array,

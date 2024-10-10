@@ -25,12 +25,12 @@ class TopTotalScoresControllerTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->models = new Collection();
+        $this->models = new Collection;
 
         $this->users = User::factory()
             ->count(10)
             ->create();
-        foreach($this->users as $user){
+        foreach ($this->users as $user) {
             $model = TopTotalScore::factory()
                 ->for($user)
                 ->createOne();

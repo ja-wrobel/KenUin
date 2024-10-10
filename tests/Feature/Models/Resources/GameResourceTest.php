@@ -30,7 +30,7 @@ class GameResourceTest extends TestCase
     {
         $model_array = $this->model->toArray();
         $resource = GameResource::make($this->model);
-        $resource_array = $resource->toArray(new Request());
+        $resource_array = $resource->toArray(new Request);
 
         $this->assertIsArray($resource_array);
         $this->assertArrayNotHasKey(

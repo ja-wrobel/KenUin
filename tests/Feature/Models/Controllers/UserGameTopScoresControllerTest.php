@@ -27,12 +27,12 @@ class UserGameTopScoresControllerTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->models = new Collection();
+        $this->models = new Collection;
 
         $this->users = User::factory()->count(3)->create();
         $this->games = Game::factory()->count(3)->create();
-        foreach($this->users as $user){
-            foreach($this->games as $game){
+        foreach ($this->users as $user) {
+            foreach ($this->games as $game) {
                 $model = GameTopScore::factory()
                     ->for($user)
                     ->for($game)
