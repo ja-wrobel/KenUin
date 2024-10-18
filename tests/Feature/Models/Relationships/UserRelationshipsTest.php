@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Feature\Models\Relationships;
 
 use App\Models\Game;
@@ -32,11 +34,12 @@ class UserRelationshipsTest extends TestCase
     #[Test]
     public function game_top_scores(): void
     {
-        /** @var GameTopScore $gameTopScore */
-        $gameTopScore = GameTopScore::factory()
+        /** @var Collection<GameTopScore> $game_top_scores */
+        $game_top_scores = GameTopScore::factory()
             ->for($this->model)
             ->for(Game::factory())
-            ->createOne();
+            ->count(5)
+            ->create();
 
         $this->assertInstanceOf(
             expected: GameTopScore::class,
@@ -44,15 +47,15 @@ class UserRelationshipsTest extends TestCase
         );
         $this->assertEquals(
             expected: $this->model->id,
-            actual: $gameTopScore->user_id
+            actual: $game_top_scores[0]->user_id
         );
     }
 
     #[Test]
     public function top_total_score(): void
     {
-        /** @var TopTotalScore $topTotalScore */
-        $topTotalScore = TopTotalScore::factory()
+        /** @var TopTotalScore $top_total_score */
+        $top_total_score = TopTotalScore::factory()
             ->for($this->model)
             ->createOne();
 
@@ -62,7 +65,7 @@ class UserRelationshipsTest extends TestCase
         );
         $this->assertEquals(
             expected: $this->model->id,
-            actual: $topTotalScore->user_id
+            actual: $top_total_score->user_id
         );
     }
 
@@ -123,11 +126,12 @@ class UserRelationshipsTest extends TestCase
     #[Test]
     public function user_game_runs(): void
     {
-        /** @var UserGameRun $run */
-        $run = UserGameRun::factory()
+        /** @var Collection<UserGameRun> $runs */
+        $runs = UserGameRun::factory()
             ->for($this->model)
             ->for(Game::factory())
-            ->createOne();
+            ->count(5)
+            ->create();
 
         $this->assertInstanceOf(
             expected: UserGameRun::class,
@@ -135,18 +139,19 @@ class UserRelationshipsTest extends TestCase
         );
         $this->assertEquals(
             expected: $this->model->id,
-            actual: $run->user_id
+            actual: $runs[0]->user_id
         );
     }
 
     #[Test]
     public function user_game_scores(): void
     {
-        /** @var UserGameScore $gameScore */
-        $gameScore = UserGameScore::factory()
+        /** @var Collection<UserGameScore> $game_scores */
+        $game_scores = UserGameScore::factory()
             ->for($this->model)
             ->for(Game::factory())
-            ->createOne();
+            ->count(5)
+            ->create();
 
         $this->assertInstanceOf(
             expected: UserGameScore::class,
@@ -154,7 +159,7 @@ class UserRelationshipsTest extends TestCase
         );
         $this->assertEquals(
             expected: $this->model->id,
-            actual: $gameScore->user_id
+            actual: $game_scores[0]->user_id
         );
     }
 }

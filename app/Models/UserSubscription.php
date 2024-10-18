@@ -27,6 +27,10 @@ class UserSubscription extends Model
         'subscription_until',
     ];
 
+    protected $casts = [
+        'subscription_until' => 'datetime',
+    ];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

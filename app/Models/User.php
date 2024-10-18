@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
+use Laravel\Sanctum\HasApiTokens;
 
 /**
  * @property-read int $id
@@ -37,6 +38,7 @@ class User extends Authenticatable
     use HasUserGameRuns;
     use HasUserGameScores;
     use Notifiable;
+    use HasApiTokens;
 
     protected $fillable = [
         'nickname',
