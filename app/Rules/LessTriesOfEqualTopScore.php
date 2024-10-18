@@ -38,7 +38,7 @@ class LessTriesOfEqualTopScore implements DataAwareRule, ValidationRule
         }
 
         $worst_try = $equal_score->max('tries');
-        if($value >= $worst_try){
+        if ($value >= $worst_try) {
             $fail('The :attribute value is not better than last :attribute value.');
         }
     }
