@@ -29,8 +29,6 @@ class UserSubscription extends Model
 
     protected $casts = [
         'subscription_until' => 'datetime',
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
     ];
 
     public function user(): BelongsTo

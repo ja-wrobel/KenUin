@@ -10,9 +10,8 @@ use App\Http\Resources\UserResource;
 
 class UsersController extends Controller
 {
-    public function show(int $id)
+    public function show(User $user): UserResource
     {
-        $user = User::find($id);
         return UserResource::make($user);
     }
 }

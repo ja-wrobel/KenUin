@@ -36,8 +36,6 @@ class GameTopScore extends Model
 
     protected $casts = [
         'score_date' => 'datetime',
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
     ];
 
     public function user(): BelongsTo

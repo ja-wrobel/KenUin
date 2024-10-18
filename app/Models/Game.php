@@ -8,7 +8,7 @@ use App\Models\RelationshipTraits\HasUserGameRuns;
 use App\Models\RelationshipTraits\HasUserGameScores;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @property-read int $id
@@ -19,7 +19,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property-read Carbon|null $created_at
  * @property-read Carbon|null $updated_at
  *
- * @property-read null|GameTopScore $gameTopScore
+ * @property-read null|GameTopScore $gameTopScores
  */
 class Game extends Model
 {
@@ -39,13 +39,8 @@ class Game extends Model
         'dir_path',
     ];
 
-    protected $casts = [
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-    ];
-
-    public function gameTopScore(): HasOne
+    public function gameTopScores(): HasMany
     {
-        return $this->hasOne(GameTopScore::class);
+        return $this->hasMany(GameTopScore::class);
     }
 }

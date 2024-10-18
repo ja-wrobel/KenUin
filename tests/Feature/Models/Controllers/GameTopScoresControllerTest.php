@@ -33,7 +33,7 @@ class GameTopScoresControllerTest extends TestCase
         $this->models = GameTopScore::factory()
             ->for($this->game)
             ->for($this->user)
-            ->count(10)->create();
+            ->count(15)->create();
     }
 
     #[Test]
@@ -93,10 +93,12 @@ class GameTopScoresControllerTest extends TestCase
     }
 
     #[Test]
-    public function get_game_score(): void
+    public function get_game_scores_by_game(): void
     {
         $response = $this->get('/api/game_scores/1');
-        $resource = GameTopScoreResource::make(GameTopScore::find(1));
+        $resource = GameTopScoreResource::collection(
+            $this->game->gameTopScores
+        );
 
         $resource_json = json_decode($resource->toJson(), true);
         $response_json = json_decode($response->getContent(), true);

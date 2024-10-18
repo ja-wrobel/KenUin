@@ -36,7 +36,7 @@ class GameRelationshipsTest extends TestCase
 
         $this->assertInstanceOf(
             expected: GameTopScore::class,
-            actual: $this->model->gameTopScore->first()
+            actual: $this->model->gameTopScores->first()
         );
         $this->assertEquals(
             expected: $this->model->id,

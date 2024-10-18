@@ -33,50 +33,26 @@ class UserGameTopScoresControllerTest extends TestCase
         $this->games = Game::factory()->count(3)->create();
         foreach ($this->users as $user) {
             foreach ($this->games as $game) {
-                $model = GameTopScore::factory()
+                $models = GameTopScore::factory()
                     ->for($user)
                     ->for($game)
                     ->count(10)
                     ->create();
-                $this->models->push($model);
+                $this->models->push($models);
             }
         }
 
     }
 
     #[Test]
-    public function get_scores_by_game(): void
-    {
-        $response = $this->get('api/game_scores/game/1');
-        $all_game_scores = $this->get('api/game_scores');
-
-        $find_by_game_id = GameTopScore::where('game_id', 1)->get();
-        $collection = GameTopScoreResource::collection($find_by_game_id);
-
-        $response_json = json_decode($response->getContent(), true);
-        $all_as_json = json_decode($all_game_scores->getContent(), true);
-        $resource_json = json_decode($collection->toJson(), true);
-
-        $response->assertStatus(200);
-        $this->assertJson($response->getContent());
-        $this->assertEquals(
-            $resource_json,
-            $response_json['data'],
-        );
-        $this->assertNotEquals(
-            $response_json['data'],
-            $all_as_json['data'],
-        );
-    }
-
-    #[Test]
     public function get_scores_by_user(): void
     {
-        $response = $this->get('api/game_scores/user/1');
+        $response = $this->get('api/game_scores/user/2');
         $all_game_scores = $this->get('api/game_scores');
 
-        $find_by_user_id = GameTopScore::where('user_id', 1)->get();
-        $collection = GameTopScoreResource::collection($find_by_user_id);
+        $collection = GameTopScoreResource::collection(
+            $this->users[1]->gameTopScores
+        );
 
         $response_json = json_decode($response->getContent(), true);
         $all_as_json = json_decode($all_game_scores->getContent(), true);

@@ -8,15 +8,14 @@ use App\Http\Controllers\API\UserGameTopScoresController;
 use App\Http\Controllers\API\UsersController;
 
 Route::get('/games', [GamesController::class, 'index']);
-Route::get('/games/{id}', [GamesController::class, 'show']);
+Route::get('/games/{game}', [GamesController::class, 'show']);
 
 Route::get('/game_scores', [GameTopScoresController::class, 'index']);
-Route::get('/game_scores/{id}', [GameTopScoresController::class, 'show']);
+Route::get('/game_scores/{game}', [GameTopScoresController::class, 'show']);
 Route::post('/game_scores', [GameTopScoresController::class, 'store']);
 
-Route::get('/game_scores/user/{id}', [UserGameTopScoresController::class, 'show_by_user']);
-Route::get('/game_scores/game/{id}', [UserGameTopScoresController::class, 'show_by_game']);
+Route::get('/game_scores/user/{user}', [UserGameTopScoresController::class, 'show']);
 
 Route::get('/top_scores', [TopTotalScoresController::class, 'index']);
 
-Route::get('/user/{id}', [UsersController::class, 'show']);
+Route::get('/user/{user}', [UsersController::class, 'show']);
