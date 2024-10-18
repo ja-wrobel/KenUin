@@ -19,7 +19,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property-read Carbon|null $created_at
  * @property-read Carbon|null $updated_at
  *
- * @property-read null|GameTopScore $gameTopScores
+ * @property-read Collection<GameTopScore> $gameTopScores
  */
 class Game extends Model
 {

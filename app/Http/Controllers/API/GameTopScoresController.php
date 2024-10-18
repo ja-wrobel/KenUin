@@ -43,8 +43,8 @@ class GameTopScoresController extends Controller
         );
         $request->validate($rules);
 
-        $user = User::findOrFail($request->get('user_id'));
-        $game = Game::findOrFail($request->get('game_id'));
+        $user = User::find($request->get('user_id'));
+        $game = Game::find($request->get('game_id'));
 
         $new_score = new GameTopScore([
             'score' => $request->get('score'),
