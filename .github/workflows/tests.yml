@@ -20,8 +20,12 @@ jobs:
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
     - name: Install Dependencies
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+    - name: Install Node Dependencies
+      run: npm install --no-save --no-progress --no-audit --quiet --silent
     - name: Generate key
       run: php artisan key:generate
+    - name: Build Vite
+      run: npm run build
     - name: Directory Permissions
       run: chmod -R 777 storage bootstrap/cache
     - name: Create Database
