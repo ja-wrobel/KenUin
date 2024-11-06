@@ -283,7 +283,7 @@ header{
     }
     & .footer{
         transition-duration: 0.75s;
-        transition-timing-function: ease-in;
+        transition-timing-function: cubic-bezier(0.6, -0.28, 0.74, 0.05);;
     }
     & .text{
         min-width: calc(clamp(225px, 6vh + 22vw, 600px) / 3 - 2vw);
