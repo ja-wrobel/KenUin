@@ -1,13 +1,3 @@
-<template>
-    <div id="games" class="img-as-bgr main-bgr">
-        <div class="tile-box">
-            <GameTile v-for="game in games" :game="game">
-                Play
-            </GameTile>
-        </div>
-    </div>
-</template>
-
 <script setup>
 import GameTile from '../Components/GameTile.vue';
 
@@ -164,3 +154,14 @@ const games = [
     }
 ];
 </script>
+
+<template>
+    <div id="games" class="img-as-bgr games main-bgr">
+        <div class="tile-box">
+            <GameTile v-for="game in games" :game="game" :key="game.id">
+                Play
+            </GameTile>
+        </div>
+    </div>
+</template>
+

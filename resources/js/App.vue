@@ -6,8 +6,8 @@
 </script>
 
 <template>
-    <Header :window_width="window_width"/>
+    <Header :window-width="window_width" />
 
-    <router-view/>
+    <router-view />
 
 </template>

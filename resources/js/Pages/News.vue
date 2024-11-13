@@ -1,5 +1,5 @@
 <template>
-    <div id="news" class="img-as-bgr">
+    <div id="news" class="img-as-bgr news">
 
     </div>
 </template>

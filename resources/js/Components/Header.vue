@@ -2,22 +2,22 @@
     import { RouterLink } from 'vue-router';
 
     defineProps({
-        window_width: Number,
+        windowWidth: Number,
     });
 
     const showNav = ()=>{
         const navbar = document.getElementById('navigation');
-        if(navbar.className === "hide nav-small"){
+        if (navbar.className === "hide nav-small"){
             navbar.className = "nav-small";
             return;
         }
         navbar.className = "hide nav-small";
-    }
+    };
 </script>
 
 <template>
     <header>
-        <template v-if="window_width > 400">
+        <template v-if="windowWidth > 400">
             <div class="logo button">
                 <RouterLink :to="{ path:'/', hash:'#main' }">
                     <h3>KenUin</h3>
@@ -82,12 +82,12 @@
         </template>
 
         <div class="user-panel">
-            <div class="log-in button">
+            <button class="log-in button">
                 Log In
-            </div>
-            <div class="register button">
+            </button>
+            <button class="register button">
                 Register
-            </div>
+            </button>
         </div>
     </header>
 </template>

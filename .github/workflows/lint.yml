@@ -27,6 +27,12 @@ jobs:
       - name: Run Pint
         run: pint --config pint.json
 
+      - name: Install ESLint
+        run: npm install --save-dev eslint eslint-plugin-vue
+
+      - name: Run ESLint
+        run: npm run fix
+
       - name: Commit linted files
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
