@@ -1,0 +1,16 @@
+{
+    "extends": ["stylelint-prettier/recommended"],
+    "rules": {
+        "function-calc-no-unspaced-operator": true,
+        "length-zero-no-unit": true,
+        "at-rule-empty-line-before": [
+            "always", {
+                "except": [
+                    "blockless-after-same-name-blockless",
+                    "blockless-after-blockless"
+                ]
+            }
+        ],
+        "rule-empty-line-before": "always-multi-line"
+    }
+}

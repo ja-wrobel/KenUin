@@ -3,11 +3,20 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "lint": "eslint",
+        "lint:fix": "eslint --fix",
+        "csslint": "stylelint resources/css/*.css",
+        "csslint:fix": "stylelint --fix resources/css/*.css"
     },
     "devDependencies": {
         "axios": "^1.6.4",
+        "eslint": "^9.14.0",
+        "eslint-plugin-vue": "^9.31.0",
         "laravel-vite-plugin": "^1.0",
+        "prettier": "^3.3.3",
+        "stylelint": "^16.10.0",
+        "stylelint-prettier": "^5.0.2",
         "vite": "^5.0"
     },
     "dependencies": {
