@@ -20,7 +20,7 @@
         <template v-if="windowWidth > 400">
             <RouterLink class="logo" :to="{ path:'/', hash:'#main' }">
                 <div class="button">
-                        <h3>KenUin</h3>
+                    <h3>KenUin</h3>
                 </div>
             </RouterLink>
             <nav class="nav-big">
