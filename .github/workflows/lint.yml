@@ -31,7 +31,7 @@ jobs:
         run: npm install --save-dev eslint eslint-plugin-vue
 
       - name: Run ESLint
-        run: npm run fix
+        run: npm run lint:fix
 
       - name: Commit linted files
         uses: stefanzweifel/git-auto-commit-action@v5
