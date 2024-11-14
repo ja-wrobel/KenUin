@@ -18,11 +18,11 @@
 <template>
     <header>
         <template v-if="windowWidth > 400">
-            <div class="logo button">
-                <RouterLink :to="{ path:'/', hash:'#main' }">
-                    <h3>KenUin</h3>
-                </RouterLink>
-            </div>
+            <RouterLink class="logo" :to="{ path:'/', hash:'#main' }">
+                <div class="button">
+                        <h3>KenUin</h3>
+                </div>
+            </RouterLink>
             <nav class="nav-big">
                 <RouterLink :to="{ path:'/', hash:'#about' }">
                     <div class="navbar button">About</div>
@@ -47,11 +47,11 @@
         </template>
         <template v-else>
             <div>
-                <div @click="showNav" class="menu-icon-box button">
+                <button @click="showNav" class="menu-icon-box button">
                     <div class="menu-icon-line"></div>
                     <div class="menu-icon-line"></div>
                     <div class="menu-icon-line"></div>
-                </div>
+                </button>
                 <nav id="navigation" class="hide nav-small">
                     <RouterLink :to="{ path:'/', hash:'#about' }">
                         <div class="navbtn-small">About</div>

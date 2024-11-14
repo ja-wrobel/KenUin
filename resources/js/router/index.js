@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import WelcomePage from "../Pages/Welcome.vue";
 import GamesPage from "../Pages/Games.vue";
 import RankingsPage from "../Pages/Rankings.vue";
+import NotFound from "../Pages/NotFound.vue";
 
 const routes = [
     {
@@ -16,6 +17,10 @@ const routes = [
     {
         path: '/rankings',
         component: RankingsPage,
+    },
+    {
+        path: '/:pathMatch(.*)*',
+        component: NotFound,
     },
 ];
 

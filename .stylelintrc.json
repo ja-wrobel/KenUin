@@ -11,6 +11,10 @@
                 ]
             }
         ],
-        "rule-empty-line-before": "always-multi-line"
+        "rule-empty-line-before": [
+            "always-multi-line", {
+                "ignore": "first-nested"
+            }
+        ]
     }
 }

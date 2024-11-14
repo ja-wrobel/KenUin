@@ -1,0 +1,10 @@
+.about {
+    background-image: url("/public/ddg_16211168.jpg");
+    width: 100%;
+    padding-top: 10vh;
+    font-size: var(--bigger-font-size);
+
+    & .welcome-box {
+        margin: auto;
+    }
+}
