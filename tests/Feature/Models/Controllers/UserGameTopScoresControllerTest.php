@@ -47,7 +47,7 @@ class UserGameTopScoresControllerTest extends TestCase
     #[Test]
     public function get_scores_by_user(): void
     {
-        $response = $this->get('api/game_scores/user/2');
+        $response = $this->get('api/game_scores/user/'.strval($this->users[1]->id));
         $all_game_scores = $this->get('api/game_scores');
 
         $collection = GameTopScoreResource::collection(

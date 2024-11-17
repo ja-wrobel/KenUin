@@ -22,6 +22,8 @@ class UserSubscription extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'user_id';
+
     protected $fillable = [
         'subscription',
         'subscription_until',

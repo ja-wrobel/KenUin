@@ -21,6 +21,8 @@ class UserTotalScore extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'user_id';
+
     protected $fillable = [
         'total_score',
     ];
