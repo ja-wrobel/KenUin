@@ -94,6 +94,11 @@ button:focus-visible {
     left: 50%;
 }
 
+.dc-center-xy {
+    align-content: center;
+    justify-items: center;
+}
+
 .w-100 {
     width: 100%;
 }
