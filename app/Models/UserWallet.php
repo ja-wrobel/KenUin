@@ -22,6 +22,7 @@ class UserWallet extends Model
     use HasFactory;
 
     protected $primaryKey = 'user_id';
+    public $incrementing = false;
 
     protected $fillable = [
         'nuins_currency',
