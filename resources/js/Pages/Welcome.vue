@@ -11,12 +11,12 @@
             </div>
         </div>
         <div class="flex main-flexbox">
-            <div class="button">
+            <button class="button">
                 Start for free
-            </div>
-            <div class="button">
+            </button>
+            <button class="button">
                 Try as guest
-            </div>
+            </button>
         </div>
     </div>
 

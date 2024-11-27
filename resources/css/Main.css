@@ -1,0 +1,41 @@
+.main {
+    font-size: var(--bigger-font-size);
+    height: var(--main-height);
+    background-image: url("/public/ddg_16140029.jpg");
+    width: 100%;
+    padding-top: var(--header-height);
+
+    & .encourage {
+        position: sticky;
+        top: calc(var(--header-height) + var(--header-to-main-gap));
+        margin-left: var(--content-margin-x);
+        margin-top: var(--header-to-main-gap);
+    }
+
+    & .text-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    & .main-flexbox {
+        justify-content: space-evenly;
+        position: sticky;
+        max-width: var(--welcome-content-width);
+        margin: var(--content-margin-y)
+            calc(var(--content-padding-x) + var(--content-margin-x));
+        top: calc(
+            var(--welcome-content-height) + var(--header-height) + 2 *
+                var(--content-padding-y) + var(--content-margin-y) +
+                var(--header-to-main-gap)
+        );
+        margin-bottom: calc(2 * var(--content-margin-y));
+
+        & .button {
+            padding: var(--bigger-button-padding);
+            filter: drop-shadow(0 0 3px black);
+            background-image: radial-gradient(#00000012, #6500d9c2);
+            background-color: #0600747c;
+        }
+    }
+}
