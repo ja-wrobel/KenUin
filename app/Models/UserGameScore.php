@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
 
 /**
+ * @property-read int $id
  * @property-read int $user_id
  * @property-read int $game_id
  * @property float $score

@@ -28,7 +28,7 @@ class UsersControllerTest extends TestCase
     #[Test]
     public function get_user(): void
     {
-        $request = $this->get('/api/user/1');
+        $request = $this->get('/api/user/'.strval($this->model->id));
         $resource = UserResource::make($this->model);
 
         $request_json = json_decode($request->getContent(), true);

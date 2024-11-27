@@ -58,9 +58,9 @@ class GameTopScoresControllerTest extends TestCase
     {
         $before_post = $this->get('/api/game_scores');
         $request = $this->post('/api/game_scores', [
-            'user_id' => '1',
-            'game_id' => '1',
-            'score' => '999999999999.99',
+            'user_id' => $this->user->id,
+            'game_id' => $this->game->id,
+            'score' => '9999999999.99',
             'time' => '0',
             'tries' => '0',
             'score_date' => '1985-08-12 19:37:56',
@@ -76,8 +76,8 @@ class GameTopScoresControllerTest extends TestCase
 
         // test validation
         $bad_request = $this->post('/api/game_scores', [
-            'user_id' => '1',
-            'game_id' => '1',
+            'user_id' => $this->user->id,
+            'game_id' => $this->game->id,
             'score' => '1',
             'time' => '100',
             'tries' => '9',
@@ -95,7 +95,7 @@ class GameTopScoresControllerTest extends TestCase
     #[Test]
     public function get_game_scores_by_game(): void
     {
-        $response = $this->get('/api/game_scores/1');
+        $response = $this->get('/api/game_scores/'.strval($this->game->id));
         $resource = GameTopScoreResource::collection(
             $this->game->gameTopScores
         );

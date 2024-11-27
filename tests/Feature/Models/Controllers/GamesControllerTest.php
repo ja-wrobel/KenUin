@@ -46,8 +46,9 @@ class GamesControllerTest extends TestCase
     #[Test]
     public function get_game(): void
     {
-        $response = $this->get('/api/games/1');
-        $resource = GameResource::make(Game::find(1));
+        $first_id = $this->models->first()->id;
+        $response = $this->get('/api/games/'.strval($first_id));
+        $resource = GameResource::make(Game::find($first_id));
 
         $response_json = json_decode($response->getContent(), true);
         $resource_json = json_decode($resource->toJson(), true);

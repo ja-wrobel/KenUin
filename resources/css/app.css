@@ -31,8 +31,8 @@
     --gap-height: calc(14vh + 8vw);
     --news-height: 1000px;
 
-    --tile-height: clamp(100px, 12vh + 5vw, 250px);
-    --tile-width: clamp(250px, 6vh + 22vw, 600px);
+    --tile-height: clamp(110px, 6vh + 7vw + 3rem, 300px);
+    --tile-width: clamp(250px, 6vh + 24vw + 2rem, 600px);
 }
 
 *::-webkit-scrollbar {

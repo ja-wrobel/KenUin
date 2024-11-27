@@ -7,7 +7,10 @@ use App\Http\Controllers\API\TopTotalScoresController;
 use App\Http\Controllers\API\UserGameTopScoresController;
 use App\Http\Controllers\API\UsersController;
 
-Route::get('/games', [GamesController::class, 'index']);
+Route::middleware('cache.headers:public;max_age=600;etag')->group(function () {
+    Route::get('/games', [GamesController::class, 'index']);
+});
+
 Route::get('/games/{game}', [GamesController::class, 'show']);
 
 Route::get('/game_scores', [GameTopScoresController::class, 'index']);
