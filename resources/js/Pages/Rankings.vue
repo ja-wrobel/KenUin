@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class="tile-box">
-            <GameTile :btn-destination="'/game_scores'">
+            <GameTile :pre-index-btn-dest="'/game'" :post-index-btn-dest="'/scores'">
                 Show
             </GameTile>
         </div>

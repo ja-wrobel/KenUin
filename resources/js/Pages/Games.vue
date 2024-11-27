@@ -5,7 +5,7 @@
 <template>
     <div id="games" class="img-as-bgr games main-bgr">
         <div class="tile-box">
-            <GameTile :btn-destination="`/play_game`">
+            <GameTile :pre-index-btn-dest="`/game`" :post-index-btn-dest="'/play'">
                 Play
             </GameTile>
         </div>

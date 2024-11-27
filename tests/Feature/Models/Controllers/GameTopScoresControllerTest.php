@@ -58,8 +58,8 @@ class GameTopScoresControllerTest extends TestCase
     {
         $before_post = $this->get('/api/game_scores');
         $request = $this->post('/api/game_scores', [
-            'user_id' => strval($this->user->id),
-            'game_id' => strval($this->game->id),
+            'user_id' => $this->user->id,
+            'game_id' => $this->game->id,
             'score' => '9999999999.99',
             'time' => '0',
             'tries' => '0',
@@ -76,8 +76,8 @@ class GameTopScoresControllerTest extends TestCase
 
         // test validation
         $bad_request = $this->post('/api/game_scores', [
-            'user_id' => strval($this->user->id),
-            'game_id' => strval($this->game->id),
+            'user_id' => $this->user->id,
+            'game_id' => $this->game->id,
             'score' => '1',
             'time' => '100',
             'tries' => '9',

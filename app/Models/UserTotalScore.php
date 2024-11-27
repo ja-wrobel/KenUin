@@ -22,11 +22,12 @@ class UserTotalScore extends Model
     use HasFactory;
 
     protected $primaryKey = 'user_id';
-    public $incrementing = false;
 
     protected $fillable = [
         'total_score',
     ];
+
+    public $incrementing = false;
 
     public function user(): BelongsTo
     {

@@ -15,7 +15,7 @@ return new class extends Migration {
             $table->string('name', 30)->unique();
             $table->enum('type', ['arcade', 'quiz', 'shooter', 'strategy', 'racing', 'pvp', 'fighting', 'casual']);
             $table->text('description');
-            $table->enum('difficulty', ['easy', 'medium_easy', 'medium', 'medium_hard', 'hard']);
+            $table->enum('difficulty', ['easy', 'medium-easy', 'medium', 'medium-hard', 'hard']);
             $table->string('dir_path', 100)->unique();
             $table->timestamps();
         });

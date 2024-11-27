@@ -5,7 +5,11 @@
     import { RouterLink } from 'vue-router';
 
     defineProps({
-        btnDestination: {
+        preIndexBtnDest: {
+            type: String,
+            required: false,
+        },
+        postIndexBtnDest: {
             type: String,
             required: false,
         }
@@ -55,7 +59,7 @@
             {{ game.description }}
         </div>
         <div class="footer flex">
-            <RouterLink class="button w-100" :to="{ path:`${btnDestination}/${game.id}` }">
+            <RouterLink class="button w-100" :to="{ path:`${preIndexBtnDest}/${game.id}${postIndexBtnDest}` }">
                 <slot />
             </RouterLink>
         </div>

@@ -36,7 +36,7 @@ class GameTopScoresController extends Controller
         $rules = array(
             'user_id' => ['required', 'exists:users,id'],
             'game_id' => ['required', 'exists:games,id'],
-            'score' => ['bail', 'required', 'numeric', 'between:1,9999999999.99', new BetterThanWorstTopScore($entries)],
+            'score' => ['bail', 'required', 'decimal:0,2', 'between:1,9999999999.99', new BetterThanWorstTopScore($entries)],
             'time' => ['bail', 'required', 'integer', 'gte:0', new BetterTimeOfEqualTopScore($entries)],
             'tries' => ['bail', 'required', 'integer', 'gte:0', 'max:9', new LessTriesOfEqualTopScore($entries)],
             'score_date' => ['required', 'date', 'before:now'],
