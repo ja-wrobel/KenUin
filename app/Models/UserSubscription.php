@@ -22,6 +22,8 @@ class UserSubscription extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'user_id';
+
     protected $fillable = [
         'subscription',
         'subscription_until',
@@ -30,6 +32,8 @@ class UserSubscription extends Model
     protected $casts = [
         'subscription_until' => 'datetime',
     ];
+
+    public $incrementing = false;
 
     public function user(): BelongsTo
     {
