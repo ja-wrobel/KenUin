@@ -1,8 +1,7 @@
 <script setup>
-    import { onMounted, ref } from 'vue';
-    import Axios from 'axios';
-    import { buildWebStorage, setupCache } from 'axios-cache-interceptor';
+    import { onMounted } from 'vue';
     import { RouterLink } from 'vue-router';
+    import { useGamesStore } from '../../stores/games';
 
     defineProps({
         preIndexBtnDest: {
@@ -15,36 +14,15 @@
         }
     });
 
-    const instance = Axios.create();
-    const axios = setupCache(instance, {
-        storage: buildWebStorage(localStorage, 'axios-cache'),
-    });
-
-    const games = ref({});
-
-    const fetchGames = async () => {
-        return await axios.get('/api/games')
-            .then((response) => {
-                return response.data;
-            });
-    };
+    const games = useGamesStore();
 
     onMounted(async () => {
-        if (localStorage.getItem('axios-cache687007452') === null) {
-            games.value = await fetchGames();
+        games.constructFromLocalStorage();
+
+        if (localStorage.getItem('games-cached') === null || games.isAlive === false) {
+            await games.fetchGames();
             return;
         }
-
-        const act_date = new Date().getTime();
-        const cached = JSON.parse(localStorage.getItem('axios-cache687007452'));
-
-        if (act_date > (cached.createdAt + cached.ttl)) {
-            localStorage.clear();
-            games.value = await fetchGames();
-            return;
-        }
-
-        games.value = cached.data.data;
     });
 </script>
 
