@@ -4,9 +4,9 @@ import axios from 'axios';
 export const useGamesStore = defineStore('games', {
     state: () => ({
         data: [],
-        createdAt: Number,
-        ttl: Number,
-        etag: String,
+        createdAt: 0,
+        ttl: 0,
+        etag: '""',
         isAlive: false
     }),
     actions: {
@@ -42,6 +42,10 @@ export const useGamesStore = defineStore('games', {
                 return;
             }
 
+            if (this.createdAt === cached.createdAt) {
+                return;
+            }
+            // assigning this is necessary only after page refresh, that's why we need this if above
             this.data = cached.data;
             this.createdAt = cached.createdAt;
             this.ttl = cached.ttl;
