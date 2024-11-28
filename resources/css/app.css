@@ -115,6 +115,18 @@ button:focus-visible {
     margin: 2px;
 }
 
+.txt-align-l {
+    text-align: left;
+}
+
+.txt-align-r {
+    text-align: right;
+}
+
+.txt-align-c {
+    text-align: center;
+}
+
 .text-container {
     height: calc(
         var(--welcome-content-height) - var(--bigger-font-size) - 4 *
