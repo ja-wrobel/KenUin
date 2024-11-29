@@ -26,7 +26,15 @@ export const useGamesStore = defineStore('games', {
             this.etag = response.headers.get('etag');
             this.isAlive = true;
 
-            localStorage.setItem('games-cached', JSON.stringify(this));
+            const thisData = {
+                $id: this.$id,
+                data: this.data,
+                createdAt: this.createdAt,
+                ttl: this.ttl,
+                etag: this.etag,
+                isAlive: this.isAlive,
+            };
+            localStorage.setItem('games-cached', JSON.stringify(thisData));
         },
         constructFromLocalStorage() {
             if (localStorage.getItem('games-cached') === null) {
