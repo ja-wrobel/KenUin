@@ -1,6 +1,7 @@
 {
-    "name": "kenuin",
+    "name": "kenuin-app",
     "private": true,
+    "version": "1.0.0",
     "type": "module",
     "scripts": {
         "dev": "vite",
@@ -22,7 +23,7 @@
     },
     "dependencies": {
         "@vitejs/plugin-vue": "^5.1.4",
-        "kenuin": "file:",
+        "kenuin-app": "file:",
         "pinia": "^2.2.7",
         "vue": "^3.5.12",
         "vue-router": "^4.4.5"
