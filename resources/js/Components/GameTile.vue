@@ -16,13 +16,11 @@
 
     const games = useGamesStore();
 
-    onMounted(async () => {
-        games.constructFromLocalStorage();
-
-        if (localStorage.getItem('games-cached') === null || games.isAlive === false) {
-            await games.fetchGames();
-            return;
-        }
+    onMounted(() => {
+        games.getGames();
+        games.$subscribe((state) => {
+            games.setLocalStorage(state);
+        });
     });
 </script>
 

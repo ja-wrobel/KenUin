@@ -10,37 +10,29 @@ export const useGamesStore = defineStore('games', {
         isAlive: false
     }),
     actions: {
-        async fetchGames() {
-            return await axios.get('/api/games')
-                .then((response) => {
-                    this.$patch(response.data);
-                    this.setInLocalStorage(response);
-                    return this.data;
-                });
-        },
-        setInLocalStorage(response) {
-            this.createdAt = new Date().getTime();
-            this.ttl = Number(
-                response.headers.get('cache-control', /\d+/)[0]
-            );
-            this.etag = response.headers.get('etag');
-            this.isAlive = true;
-
-            const this_data = {
-                $id: this.$id,
-                data: this.data,
-                createdAt: this.createdAt,
-                ttl: this.ttl,
-                etag: this.etag,
-                isAlive: this.isAlive,
-            };
-            localStorage.setItem('games-cached', JSON.stringify(this_data));
-        },
-        constructFromLocalStorage() {
-            if (localStorage.getItem('games-cached') === null) {
+        getGames() {
+            if (localStorage.getItem('games-cached') !== null) {
+                this.constructFromLocalStorage();
+            }
+            if (this.isAlive === true) {
                 return;
             }
-
+            axios.get('/api/games')
+                .then((response) => {
+                    this.$patch({
+                        data: response.data.data,
+                        createdAt: new Date().getTime(),
+                        ttl: Number(response.headers.get('cache-control', /\d+/)[0]),
+                        etag: response.headers.get('etag'),
+                        isAlive: true
+                    });
+                });
+        },
+        setLocalStorage(state) {
+            state.payload.$id = state.storeId;
+            localStorage.setItem('games-cached', JSON.stringify(state.payload));
+        },
+        constructFromLocalStorage() {
             const act_date = new Date().getTime();
             const cached = JSON.parse(localStorage.getItem('games-cached'));
 
@@ -53,12 +45,14 @@ export const useGamesStore = defineStore('games', {
             if (this.createdAt === cached.createdAt) {
                 return;
             }
-            // assigning this is necessary only after page refresh, that's why we need this if above
-            this.data = cached.data;
-            this.createdAt = cached.createdAt;
-            this.ttl = cached.ttl;
-            this.etag = cached.etag;
-            this.isAlive = true;
+            // patching is necessary only after page refresh, that's why we need this if above
+            this.$patch({
+                data: cached.data,
+                createdAt: cached.createdAt,
+                ttl: cached.ttl,
+                etag: cached.etag,
+                isAlive: true
+            });
         }
     }
 });
