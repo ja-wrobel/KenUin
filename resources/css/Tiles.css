@@ -19,13 +19,14 @@
     & .header,
     .footer {
         justify-content: space-between;
-        text-wrap-style: balance;
+        text-wrap-style: stable;
     }
 
     & .body,
     .header,
     .footer {
-        margin: 3px;
+        margin-right: clamp(5px, 1vw, 10px);
+        margin-left: clamp(5px, 1vw, 10px);
         transition: 1s all;
         cursor: default;
     }
@@ -45,15 +46,20 @@
         transform: translateY(
             calc(var(--tile-height) - var(--medium-font-size) * 2)
         );
+        margin-bottom: 2px;
+        margin-top: 3px;
     }
 
     & .footer {
         transition-duration: 0.75s;
         transition-timing-function: cubic-bezier(0.6, -0.28, 0.74, 0.05);
+        margin-bottom: 3px;
+        margin-top: 2px;
     }
 
     & .text {
         min-width: calc(clamp(225px, 6vh + 22vw, 600px) / 3 - 2vw);
+        text-transform: capitalize;
     }
 
     & .title {
@@ -61,7 +67,6 @@
             calc(0% - var(--tile-height) / 3 - var(--medium-font-size))
         );
         font-size: var(--bigger-font-size);
-        text-wrap-mode: nowrap;
         transition: 1s all;
     }
 }
