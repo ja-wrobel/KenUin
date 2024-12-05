@@ -18,6 +18,7 @@
 
     onMounted(() => {
         games.getGames();
+
         games.$subscribe((state) => {
             games.setLocalStorage(state);
         });

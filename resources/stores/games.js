@@ -33,10 +33,10 @@ export const useGamesStore = defineStore('games', {
             localStorage.setItem('games-cached', JSON.stringify(state.payload));
         },
         constructFromLocalStorage() {
-            const act_date = new Date().getTime();
+            const now = new Date().getTime();
             const cached = JSON.parse(localStorage.getItem('games-cached'));
 
-            if (act_date > (cached.createdAt + (cached.ttl*1000))) {
+            if (now > (cached.createdAt + (cached.ttl*1000))) {
                 localStorage.clear();
                 this.isAlive = false;
                 return;
