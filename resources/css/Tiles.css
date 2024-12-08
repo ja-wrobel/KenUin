@@ -10,7 +10,7 @@
 .tile {
     display: inline-grid;
     margin: 2vw;
-    background-color: midnightblue;
+    background-color: var(--component-background);
     height: var(--tile-height);
     width: var(--tile-width);
     align-items: center;

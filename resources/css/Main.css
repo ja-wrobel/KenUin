@@ -33,9 +33,11 @@
 
         & .button {
             padding: var(--bigger-button-padding);
-            filter: drop-shadow(0 0 3px black);
-            background-image: radial-gradient(#00000012, #6500d9c2);
-            background-color: #0600747c;
+            filter: drop-shadow(0 0 2px black);
+            background-image: var(--button2-linear-background);
+            background-color: var(--button2-background);
+            color: #efefef;
+            font-family: Calibri;
         }
     }
 }
