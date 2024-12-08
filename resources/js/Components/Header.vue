@@ -1,25 +1,29 @@
 <script setup>
     import { RouterLink } from 'vue-router';
+    import { useAuthStateStore } from '../../stores/authState';
+
+    const auth_component_state = useAuthStateStore();
 
     defineProps({
         windowWidth: Number,
     });
 
     const showNav = ()=>{
-        const navbar = document.getElementById('navigation');
-        if (navbar.className === "hide nav-small"){
-            navbar.className = "nav-small";
+        const navigation = document.getElementById('navigation');
+        if (navigation.className === "hide nav-small"){
+            navigation.className = "nav-small";
             return;
         }
-        navbar.className = "hide nav-small";
+        navigation.className = "hide nav-small";
     };
+
 </script>
 
 <template>
     <header>
-        <template v-if="windowWidth > 400">
+        <template v-if="windowWidth > 460">
             <RouterLink class="logo" :to="{ path:'/', hash:'#main' }">
-                <div class="button">
+                <div class="navbar button">
                     <h3>KenUin</h3>
                 </div>
             </RouterLink>
@@ -47,7 +51,7 @@
         </template>
         <template v-else>
             <div>
-                <button @click="showNav" class="menu-icon-box button">
+                <button @click="showNav" class="menu-icon-box navbar button">
                     <div class="menu-icon-line"></div>
                     <div class="menu-icon-line"></div>
                     <div class="menu-icon-line"></div>
@@ -74,7 +78,7 @@
                     </RouterLink>
                 </nav>
             </div>
-            <div class="logo button center-x">
+            <div class="logo navbar button center-x">
                 <RouterLink :to="{ path:'/', hash:'#main' }">
                     <h3>KenUin</h3>
                 </RouterLink>
@@ -82,10 +86,10 @@
         </template>
 
         <div class="user-panel">
-            <button class="log-in button">
+            <button @click="auth_component_state.logIn" class="log-in navbar button">
                 Log In
             </button>
-            <button class="register button">
+            <button @click="auth_component_state.register" class="register navbar button">
                 Register
             </button>
         </div>
