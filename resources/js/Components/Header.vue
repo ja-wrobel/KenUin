@@ -87,18 +87,18 @@
 
         <div class="user-panel">
             <button @click="auth_component_state.logIn"
-                :class="
-                    `${auth_component_state.calledFor === 'login' ? 'is-current' : ''}
+                    :class="
+                        `${auth_component_state.calledFor === 'login' ? 'is-current' : ''}
                     navbar-button`
-                "
+                    "
             >
                 Log In
             </button>
             <button @click="auth_component_state.register"
-                :class="
-                    `${auth_component_state.calledFor === 'register' ? 'is-current' : ''}
+                    :class="
+                        `${auth_component_state.calledFor === 'register' ? 'is-current' : ''}
                     navbar-button`
-                "
+                    "
             >
                 Register
             </button>
