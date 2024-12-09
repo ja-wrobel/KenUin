@@ -10,7 +10,6 @@
                 type="text"
                 name="username"
                 autocomplete="username"
-                placeholder="Username"
             >
         </div>
         <div class="auth-form-container grid">
@@ -21,7 +20,6 @@
                 type="text"
                 name="email"
                 autocomplete="email"
-                placeholder="Email"
             >
         </div>
         <div class="auth-form-container grid">
@@ -32,7 +30,6 @@
                 type="password"
                 name="password"
                 autocomplete="off"
-                placeholder="Password"
             >
         </div>
         <div class="auth-form-container grid pb-2r">
@@ -43,7 +40,6 @@
                 type="password"
                 name="confirm-password"
                 autocomplete="off"
-                placeholder="Confirm Password"
             >
         </div>
         <button class="button">Register</button>

@@ -41,7 +41,7 @@ header {
         }
 
         & .navbtn-small:hover,
-        a.is-current-small[aria-current=page]>div {
+        a.is-current-small[aria-current="page"] > div {
             background: var(--linear-onhover-gradient) !important;
             border-right: 1px solid var(--border-color) !important;
             border-left: 1px solid var(--border-color) !important;
@@ -52,8 +52,8 @@ header {
         padding: calc(var(--header-height) / 3 - 2px) 2vw;
     }
 
-    & .navbar:hover>a.is-current-small:not([aria-current=page]),
-    .navbar:has(a.is-current-small[aria-current=page]) {
+    & .navbar:hover > a.is-current-small:not([aria-current="page"]),
+    .navbar:has(a.is-current-small[aria-current="page"]) {
         background: var(--linear-onhover-gradient) !important;
         border-right: 2px solid var(--border-color) !important;
         border-left: 2px solid var(--border-color) !important;
@@ -109,15 +109,15 @@ header {
     & .navbar-button:hover,
     button.navbar-button:focus-visible,
     button.is-current.navbar-button,
-    .navbar-button:has(a.is-current-small[aria-current=page]) {
+    .navbar-button:has(a.is-current-small[aria-current="page"]) {
         border-right: 2px solid var(--border-color);
         border-left: 2px solid var(--border-color);
     }
 
     & .navbar-button:hover,
-    a.is-current[aria-current=page],
+    a.is-current[aria-current="page"],
     button.is-current.navbar-button,
-    .navbar-button:has(a.is-current-small[aria-current=page]) {
+    .navbar-button:has(a.is-current-small[aria-current="page"]) {
         background: var(--linear-onhover-gradient) !important;
     }
 }
