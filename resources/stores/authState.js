@@ -7,7 +7,7 @@ export const useAuthStateStore = defineStore('authState', {
     }),
     actions: {
         logIn() {
-            if (this.show === true) {
+            if (this.show === true && this.calledFor === "login") {
                 this.show = false;
                 return;
             }
@@ -15,7 +15,7 @@ export const useAuthStateStore = defineStore('authState', {
             this.calledFor = "login";
         },
         register() {
-            if (this.show === true) {
+            if (this.show === true && this.calledFor === "register") {
                 this.show = false;
                 return;
             }
