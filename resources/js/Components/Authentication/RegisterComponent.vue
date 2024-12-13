@@ -1,3 +1,14 @@
+<script setup>
+    import { reactive } from 'vue';
+
+    const form_data = reactive({
+        username: "",
+        email: "",
+        password: "",
+        confirm_password: "",
+    });
+</script>
+
 <template>
     <h2 class="dc-center-xy transparent-blue mx-3vw">Register</h2>
 
@@ -10,6 +21,7 @@
                 type="text"
                 name="username"
                 autocomplete="username"
+                v-model="form_data.username"
             >
         </div>
         <div class="auth-form-container grid">
@@ -20,6 +32,7 @@
                 type="text"
                 name="email"
                 autocomplete="email"
+                v-model="form_data.email"
             >
         </div>
         <div class="auth-form-container grid">
@@ -30,6 +43,7 @@
                 type="password"
                 name="password"
                 autocomplete="off"
+                v-model="form_data.password"
             >
         </div>
         <div class="auth-form-container grid pb-2r">
@@ -40,6 +54,7 @@
                 type="password"
                 name="confirm-password"
                 autocomplete="off"
+                v-model="form_data.confirm_password"
             >
         </div>
         <button class="button">Register</button>

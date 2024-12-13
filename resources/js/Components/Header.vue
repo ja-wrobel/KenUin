@@ -1,14 +1,14 @@
 <script setup>
     import { RouterLink } from 'vue-router';
-    import { useAuthStateStore } from '../../stores/authState';
+    import { useAuthModalStore } from '../../stores/authModal';
 
-    const auth_component_state = useAuthStateStore();
+    const auth_component_store = useAuthModalStore();
 
     defineProps({
         windowWidth: Number,
     });
 
-    const showNav = ()=>{
+    const showNav = () => {
         const navigation = document.getElementById('navigation');
         if (navigation.className === "hide nav-small"){
             navigation.className = "nav-small";
@@ -16,6 +16,14 @@
         }
         navigation.className = "hide nav-small";
     };
+
+    const logIn = () => {
+        auth_component_store.logIn();
+    };
+
+    const register = () => {
+        auth_component_store.register();
+    }
 
 </script>
 
@@ -87,14 +95,14 @@
 
         <div class="user-panel">
             <button
-                @click="auth_component_state.logIn"
-                :class="`${auth_component_state.calledFor === 'login' ? 'is-current' : ''} navbar-button`"
+                @click="logIn"
+                :class="`${auth_component_store.calledFor === 'login' ? 'is-current' : ''} navbar-button`"
             >
                 Log In
             </button>
             <button
-                @click="auth_component_state.register"
-                :class="`${auth_component_state.calledFor === 'register' ? 'is-current' : ''} navbar-button`"
+                @click="register"
+                :class="`${auth_component_store.calledFor === 'register' ? 'is-current' : ''} navbar-button`"
             >
                 Register
             </button>

@@ -1,6 +1,12 @@
 <script setup>
     import About from './About.vue';
     import News from './News.vue';
+    import { useAuthModalStore } from '../../stores/authModal';
+
+    const register = () => {
+        useAuthModalStore().register();
+    };
+
 </script>
 
 <template>
@@ -11,7 +17,7 @@
             </div>
         </div>
         <div class="flex main-flexbox">
-            <button class="button">
+            <button @click="register" class="button">
                 Start for free
             </button>
             <button class="button">

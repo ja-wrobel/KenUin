@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 
-export const useAuthStateStore = defineStore('authState', {
+export const useAuthModalStore = defineStore("authModal", {
     state: () => ({
         show: false,
         calledFor: "none",

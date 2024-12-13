@@ -1,11 +1,11 @@
 <script setup>
     import Header from './Components/Header.vue';
     import Authenticate from './Components/Authentication/Authenticate.vue';
-    import { useAuthStateStore } from '../stores/authState';
+    import { useAuthModalStore } from '../stores/authModal';
 
     const window_width = window.innerWidth;
 
-    const auth_component_state = useAuthStateStore();
+    const auth_component_store = useAuthModalStore();
 
 </script>
 
@@ -14,6 +14,6 @@
 
     <router-view />
 
-    <Authenticate v-if="auth_component_state.show === true" />
+    <Authenticate v-if="auth_component_store.show === true" />
 
 </template>
