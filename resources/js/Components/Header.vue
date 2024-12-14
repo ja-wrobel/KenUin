@@ -23,7 +23,7 @@
 
     const register = () => {
         auth_component_store.register();
-    }
+    };
 
 </script>
 
