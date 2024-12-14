@@ -28,6 +28,7 @@
         margin-block-start: 0 !important;
         padding-block-start: 5px !important;
         padding-block-end: 5px !important;
+        font-size: 1em;
     }
 
     & .auth-form {
@@ -48,21 +49,30 @@
 }
 
 .auth.register.small {
-    height: max-content;
-    width: max-content;
+    height: max-content !important;
+    width: max-content !important;
 
     & h2 {
         margin-block-start: 0 !important;
         padding-block-end: 5px !important;
         padding-block-start: 2px !important;
+        font-size: 1em !important;
     }
 
     & .auth-form {
-        padding-block-end: 10px;
+        padding-block-end: 10px !important;
+
+        & .button {
+            padding: 0.3rem !important;
+        }
     }
 
     & .auth-form-container {
-        padding: 2px 3.5vw;
+        padding: 0 3.5vw !important;
+    }
+
+    & .auth-input {
+        padding: 0.3rem !important;
     }
 
     & .pt-2r {
@@ -130,20 +140,21 @@
     }
 
     & .auth-form-container {
-        padding: 1vw 3.5vw;
+        padding: 3px 3.5vw;
         align-items: center;
         background-color: #1d2e57;
         background-image: linear-gradient(90deg, #1d2e57 0%, #ffffff0d 145%);
+        width: calc(100% - (2 * 3.5vw));
     }
 
     & .auth-input {
         font-size: var(--small-font-size);
         padding: 0.5rem;
-        width: var(--input-field-width);
         background: rgba(255, 255, 255, 0.1);
         border: 1px solid #457b9d;
         color: #f1faee;
         border-radius: 4px;
+        min-width: var(--input-field-width);
     }
 
     & .auth-input:focus-visible {
@@ -164,7 +175,8 @@
         align-content: center;
         border: 3px solid white;
         background-color: white !important;
-        width: 0;
+        width: 0 !important;
+        min-width: 0 !important;
         border-radius: 1rem;
         padding: 0.25rem !important;
     }
@@ -177,6 +189,13 @@
     & .auth-input[type="checkbox"]:hover,
     .auth-input[type="checkbox"]:focus-visible {
         box-shadow: 0 0 7px 1px var(--border-color);
+    }
+
+    & .auth-warn {
+        height: clamp(0.6rem, 0.45vw + 0.35vh + 0.35rem, 1.2rem);
+        width: calc(var(--input-field-width) + (2 * 0.5rem));
+        font-size: clamp(0.5rem, 0.45vw + 0.35vh + 0.25rem, 1rem);
+        color: #dc96f3;
     }
 
     & .check-label {
