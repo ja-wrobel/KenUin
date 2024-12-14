@@ -20,6 +20,7 @@
                 type="text"
                 name="username"
                 autocomplete="username"
+                placeholder="Enter your username or email"
                 v-model="form_data.login"
             >
         </div>
@@ -31,6 +32,7 @@
                 type="password"
                 name="password"
                 autocomplete="current-password"
+                placeholder="Enter your password"
                 v-model="form_data.password"
             >
         </div>

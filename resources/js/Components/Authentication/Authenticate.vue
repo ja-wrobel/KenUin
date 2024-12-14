@@ -9,9 +9,9 @@
 
 <template>
     <div :class="`auth ${auth_component_store.calledFor}`">
-        <div class="close button" @click="auth_component_store.hide">
+        <button class="close button" @click="auth_component_store.hide">
             X
-        </div>
+        </button>
 
         <LoginComponent v-if="auth_component_store.calledFor === 'login'" />
 

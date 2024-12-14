@@ -21,6 +21,7 @@
                 type="text"
                 name="username"
                 autocomplete="username"
+                placeholder="Choose your username/login"
                 v-model="form_data.username"
             >
         </div>
@@ -32,6 +33,7 @@
                 type="text"
                 name="email"
                 autocomplete="email"
+                placeholder="Will be necessary to activate account"
                 v-model="form_data.email"
             >
         </div>
@@ -43,6 +45,7 @@
                 type="password"
                 name="password"
                 autocomplete="off"
+                placeholder="Make sure it is a strong password"
                 v-model="form_data.password"
             >
         </div>
@@ -54,6 +57,7 @@
                 type="password"
                 name="confirm-password"
                 autocomplete="off"
+                placeholder="Type your password again"
                 v-model="form_data.confirm_password"
             >
         </div>
