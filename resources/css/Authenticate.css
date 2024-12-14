@@ -20,6 +20,60 @@
     }
 }
 
+.auth.login.small {
+    height: max-content;
+    width: max-content;
+
+    & h2 {
+        margin-block-start: 0 !important;
+        padding-block-start: 5px !important;
+        padding-block-end: 5px !important;
+    }
+
+    & .auth-form {
+        padding-block-end: 1em;
+    }
+
+    & .auth-form-container {
+        padding: 10px 3.5vw;
+    }
+
+    & .pt-2r {
+        padding-top: 10px !important;
+    }
+
+    & .pb-2r {
+        padding-bottom: 10px !important;
+    }
+}
+
+.auth.register.small {
+    height: max-content;
+    width: max-content;
+
+    & h2 {
+        margin-block-start: 0 !important;
+        padding-block-end: 5px !important;
+        padding-block-start: 2px !important;
+    }
+
+    & .auth-form {
+        padding-block-end: 10px;
+    }
+
+    & .auth-form-container {
+        padding: 2px 3.5vw;
+    }
+
+    & .pt-2r {
+        padding-top: 5px !important;
+    }
+
+    & .pb-2r {
+        padding-bottom: 5px !important;
+    }
+}
+
 .auth {
     position: fixed;
     top: calc(50% + var(--header-height) / 2);

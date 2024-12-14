@@ -5,11 +5,14 @@
 
     const auth_component_store = useAuthModalStore();
 
+    const close = () => {
+        auth_component_store.hide();
+    };
 </script>
 
 <template>
-    <div :class="`auth ${auth_component_store.calledFor}`">
-        <button class="close button" @click="auth_component_store.hide">
+    <div :class="`auth ${auth_component_store.calledFor} ${auth_component_store.isSmallDevice === true ? 'small': ''}`">
+        <button class="close button" @click="close">
             X
         </button>
 
