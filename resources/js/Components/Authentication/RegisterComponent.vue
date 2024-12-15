@@ -12,7 +12,7 @@
         is_password_confirmed: false,
     });
 
-    const validateUsername = () => {
+    function validateUsername() {
         const username_warn = document.getElementById('username-warn');
         const username_regex = new RegExp(/^[^\d\W][\w!.\-&]*[^\W]$/);
         form_data.is_username_correct = false;
@@ -32,7 +32,7 @@
         }
     };
 
-    const validateEmail = () => {
+    function validateEmail() {
         const email_warn = document.getElementById('email-warn');
         const email_regex = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/);
         form_data.is_email_correct = false;
@@ -52,7 +52,7 @@
         }
     };
 
-    const validatePassword = () => {
+    function validatePassword() {
         const password_warn = document.getElementById('password-warn');
         const confirm_warn = document.getElementById('conf-password-warn');
         const password_regex = new RegExp(/^(?=.*\d)(?=.*[A-Z])(?=.*[\W_])(?=.*[a-z])[^\s]*$/);
@@ -65,7 +65,7 @@
             password_warn.innerHTML = "Password has to be between 8 to 255 characters long.";
         }
         else if (password_regex.test(form_data.password) === false) {
-            password_warn.innerHTML = "Password has to contain small and big letter, special character and digit.";
+            password_warn.innerHTML = "Password has to contain mixed case, special character and digit.";
         }
         else if (form_data.password !== form_data.confirm_password) {
             confirm_warn.innerHTML = "Passwords have to match!";
@@ -81,7 +81,7 @@
         }
     };
 
-    const handleSubmit = () => {
+    function handleSubmit() {
         if (
             form_data.is_username_correct === false ||
             form_data.is_email_correct === false ||
@@ -93,7 +93,7 @@
             validatePassword();
             return false;
         }
-        console.log(form_data);
+        console.log('register');
     };
 </script>
 

@@ -49,7 +49,7 @@
     --tile-height: clamp(110px, 6vh + 7vw + 3rem, 300px);
     --tile-width: clamp(250px, 6vh + 24vw + 2rem, 600px);
 
-    --input-field-width: clamp(200px, 6vh + 14vw + 9rem, 450px);
+    --input-field-width: clamp(200px, 6vh + 14vw + 7rem, 450px);
 }
 
 *::-webkit-scrollbar {

@@ -7,9 +7,10 @@
         remember: false,
     });
 
-    const handleSubmit = () => {
+    function handleSubmit() {
         const username_warn = document.getElementById("username-warn");
         const password_warn = document.getElementById("password-warn");
+
         if (form_data.username.length === 0) {
             password_warn.innerHTML = "";
             username_warn.innerHTML = "Login is required!";
@@ -24,7 +25,7 @@
             username_warn.innerHTML = "";
             password_warn.innerHTML = "";
         }
-        console.log(form_data);
+        console.log('login');
     };
 </script>
 

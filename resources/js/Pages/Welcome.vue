@@ -3,7 +3,7 @@
     import News from './News.vue';
     import { useAuthModalStore } from '../../stores/authModal';
 
-    const register = () => {
+    function register() {
         useAuthModalStore().register();
     };
 
