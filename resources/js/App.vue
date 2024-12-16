@@ -2,25 +2,25 @@
     import Header from './Components/Header.vue';
     import Authenticate from './Components/Authentication/Authenticate.vue';
     import { useAuthModalStore } from '../stores/authModal';
-    import { onMounted, onUnmounted, ref } from 'vue';
+    import { computed, onMounted, onUnmounted, ref } from 'vue';
 
     const auth_modal_store = useAuthModalStore();
     const window_width = ref(window.innerWidth);
 
-    function getAuthModalState() {
+    const shouldShowAuthModal = computed(() => {
         return auth_modal_store.show;
-    };
+    });
 
-    function setWindowWidthValue() {
+    function getNewWindowWidth() {
         window_width.value = window.innerWidth;
     };
 
     onMounted(() => {
-        window.addEventListener('resize', setWindowWidthValue);
+        window.addEventListener('resize', getNewWindowWidth);
     });
 
     onUnmounted(() => {
-        window.removeEventListener('resize', setWindowWidthValue);
+        window.removeEventListener('resize', getNewWindowWidth);
     });
 
 </script>
@@ -30,6 +30,6 @@
 
     <router-view />
 
-    <Authenticate v-if="getAuthModalState() === true" />
+    <Authenticate v-if="shouldShowAuthModal === true" />
 
 </template>
