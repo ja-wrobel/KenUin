@@ -5,12 +5,12 @@ header {
     text-wrap: nowrap;
     font-size: var(--medium-font-size);
     height: var(--header-height);
-    background-color: midnightblue;
-    padding: 0 0.6vw;
+    background-color: var(--component-background);
     position: fixed;
     top: 0;
     z-index: 2;
     width: 100%;
+    border-bottom: 1px solid #3a759b;
 
     & .logo {
         margin-left: var(--header-side-margin);
@@ -18,19 +18,16 @@ header {
         & h3 {
             margin: 0 !important;
         }
-    }
 
-    & .nav-big {
-        display: inherit;
-        width: 40vw;
-        justify-content: var(--header-justify);
-        transform: translate(-15%, 0);
+        & .button {
+            padding: calc(var(--header-height) / 3 - 2px) 2vw !important;
+        }
     }
 
     & .nav-small {
-        background-color: midnightblue;
+        background: var(--button-linear-background);
         width: 35vw;
-        border-top: 1px solid blueviolet;
+        border-top: 1px solid var(--border-color);
         position: fixed;
         left: 0;
         top: var(--header-height);
@@ -40,13 +37,27 @@ header {
         & .navbtn-small {
             text-align: center;
             padding: 5px;
-            border-bottom: 1px solid blueviolet;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        & .navbtn-small:hover {
-            background-image: radial-gradient(#ffffff49, #6500d9c2) !important;
-            background-color: #060074a4 !important;
+        & .navbtn-small:hover,
+        a.is-current-small[aria-current="page"] > div {
+            background: var(--linear-onhover-gradient) !important;
+            border-right: 1px solid var(--border-color) !important;
+            border-left: 1px solid var(--border-color) !important;
         }
+    }
+
+    & .logo.navbar-button {
+        padding: calc(var(--header-height) / 3 - 2px) 2vw;
+    }
+
+    & .navbar:hover > a.is-current-small:not([aria-current="page"]),
+    .navbar:has(a.is-current-small[aria-current="page"]) {
+        background: var(--linear-onhover-gradient) !important;
+        border-right: 2px solid var(--border-color) !important;
+        border-left: 2px solid var(--border-color) !important;
+        padding: calc(var(--header-height) / 3 - 2px) 2vw !important;
     }
 
     & .hide {
@@ -54,11 +65,15 @@ header {
     }
 
     & .menu-icon-box {
-        padding: 2px 6px;
-        background-color: #ffffff17;
-        margin-left: 5px;
+        background-image: var(--button2-linear-background);
+        background-color: var(--button2-background);
         border-radius: 1px;
-        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-right: 1px solid var(--border-color) !important;
+        border-left: 1px solid var(--border-color) !important;
+    }
+
+    & .menu-icon-box:hover {
+        background: var(--linear-onhover-gradient) !important;
     }
 
     & .menu-icon-line {
@@ -71,5 +86,38 @@ header {
     & .user-panel {
         display: inherit;
         margin-right: var(--header-side-margin);
+    }
+
+    & .nav-big {
+        display: inherit;
+        width: 40vw;
+        justify-content: var(--header-justify);
+        transform: translate(-15%, 0);
+    }
+
+    & .navbar-button {
+        padding: calc(var(--header-height) / 3 - 1px) 2vw;
+        margin: 0;
+        border-right: 2px solid transparent;
+        border-radius: 0 !important;
+        border-left: 2px solid transparent;
+        text-align: center;
+        text-wrap-style: balance;
+        cursor: pointer;
+    }
+
+    & .navbar-button:hover,
+    button.navbar-button:focus-visible,
+    button.is-current.navbar-button,
+    .navbar-button:has(a.is-current-small[aria-current="page"]) {
+        border-right: 2px solid var(--border-color);
+        border-left: 2px solid var(--border-color);
+    }
+
+    & .navbar-button:hover,
+    a.is-current[aria-current="page"],
+    button.is-current.navbar-button,
+    .navbar-button:has(a.is-current-small[aria-current="page"]) {
+        background: var(--linear-onhover-gradient) !important;
     }
 }
